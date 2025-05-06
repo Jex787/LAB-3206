@@ -53,22 +53,24 @@ digital_signal = np.repeat(x, samples)
 # ---------------------------------------------
 
 # PSK
-A = 5
-fc = 2/bp
-carrier = np.cos(2*np.pi*fc*t_bit)
-modulated = []
-for bit in x:
-    wave = A * carrier
-    if bit == 0:
-        wave = -wave
-    modulated += list(wave)
-recoverd = []
-for i in range(0, len(modulated), samples):
-    segment = modulated[i:i+samples]
-    probuct = np.multiply(segment, carrier)
-    area = np.trapz(probuct, t_bit)
-    bit = 1 if area>0 else 0
-    recoverd.append(bit)
+# ---------------------------------------------
+# A = 5
+# fc = 2/bp
+# carrier = np.cos(2*np.pi*fc*t_bit)
+# modulated = []
+# for bit in x:
+#     wave = A * carrier
+#     if bit == 0:
+#         wave = -wave
+#     modulated += list(wave)
+# recoverd = []
+# for i in range(0, len(modulated), samples):
+#     segment = modulated[i:i+samples]
+#     probuct = np.multiply(segment, carrier)
+#     area = np.trapz(probuct, t_bit)
+#     bit = 1 if area>0 else 0
+#     recoverd.append(bit)
+# ------------------------------------------
 
 recoverd_signal = np.repeat(recoverd, samples)
 
