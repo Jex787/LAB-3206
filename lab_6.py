@@ -19,7 +19,7 @@ digital_signal = np.repeat(x, samples)
 # Modulation
 modulated = np.concatenate([
     (A1 if bit else A2) * np.cos(2 * np.pi * f * t_bit)
-    for bit in x
+    for bit in x 
 ])
 
 # Demodulation

@@ -19,7 +19,6 @@ m = np.sin(2 * np.pi * fm * (t - 1/fs))
 pulse_train = square(2 * np.pi * fc * t, duty / 100)
 pulse_train[pulse_train < 0] = 0  # Make it 0 or 1
 
-# PAM signal
 pam = np.zeros_like(t)
 period_samples = int(len(t) / fc)
 on_samples = int(np.ceil(period_samples * duty / 100))
@@ -28,7 +27,6 @@ indices = np.arange(0, len(t), period_samples)
 for i in indices:
     pam[i:i+on_samples] = m[i]
 
-# Plotting
 plt.figure(figsize=(10, 6))
 
 plt.subplot(3,1,1)
